@@ -6,21 +6,19 @@ import Employees from './components/Employees/Employees';
 import './App.css';
 
 const initialState = {
-
   route: 'home'
-
   }
 
 class App extends Component {
+  
   constructor() {
-  super();
-  this.state = initialState;
+    super();
+    this.state = initialState;
   }
 
   onRouteChange = (route) => {
     this.setState({route: route});
   }
-
 
   render() {
     const { route } = this.state;
