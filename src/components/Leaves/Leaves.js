@@ -1,10 +1,26 @@
 import React, { Component } from 'react';
+import LeaveList from './LeaveList';
 import AddLeave from './components/AddLeave/AddLeave'
 
 
 class Leaves extends Component {
+  
+  constructor() {
+    super()
+    this.state = {
+      leaves: [],
+    }
+  }
+  
+  componentDidMount() {
+    fetch('http://localhost:3000/leaves')
+      .then(response=> response.json())
+      .then(users => {this.setState({leaves: users})});
+  }
+  
   render() {
-    return (
+    const { leaves } = this.state;
+	return (
       <div>
         <p className="tl mh7 fw5">Add Leave Details</p>
         <AddLeave />
@@ -19,20 +35,7 @@ class Leaves extends Component {
 			          <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">To</th>
 			        </tr>
 			      </thead>
-			      <tbody className="lh-copy">
-			        <tr>
-			          <td className="pv3 pr3 bb tl b--black-20">Hassan Johnson</td>
-			          <td className="pv3 pr3 bb tl b--black-20">Casual Leave</td>
-			          <td className="pv3 pr3 bb tl b--black-20">Date1</td>
-			          <td className="pv3 pr3 bb tl b--black-20">Date2</td>
-			        </tr>
-			        <tr>
-			          <td className="pv3 pr3 bb tl b--black-20">Taral Hicks</td>
-			          <td className="pv3 pr3 bb tl b--black-20">Comp Off</td>
-			          <td className="pv3 pr3 bb tl b--black-20">Date1</td>
-			          <td className="pv3 pr3 bb tl b--black-20">Date21</td>
-			        </tr>
-			      </tbody>
+			      <LeaveList users={leaves} />
 			    </table>
 			  </div>
 		</div>

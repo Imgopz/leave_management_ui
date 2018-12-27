@@ -4,7 +4,7 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
-        <p>This is home page</p>
+        <p className='mv6'>This page is under construction. Please come back soon!</p>
       </div>
     );
   }

@@ -8,6 +8,7 @@ import './App.css';
 const initialState = {
   route: 'home'
   }
+  
 
 class App extends Component {
   
@@ -19,6 +20,7 @@ class App extends Component {
   onRouteChange = (route) => {
     this.setState({route: route});
   }
+ 
 
   render() {
     const { route } = this.state;

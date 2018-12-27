@@ -11,15 +11,16 @@ class Employees extends Component {
       employees: [],
     }
   }
-
+  
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/users')
+    fetch('http://localhost:3000/employees')
       .then(response=> response.json())
       .then(users => {this.setState({ employees: users})});
   }
 
   render() {
   	const { employees } = this.state;
+	
     return (
     	<div>
     		<p className="tl mh7 fw5">Add Employees</p>
