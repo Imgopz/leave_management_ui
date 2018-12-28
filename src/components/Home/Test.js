@@ -7,16 +7,40 @@ const options = [
   { value: 'Kiran', label: 'Kiran' }
 ];
 
+const opts = [];
+
+
 class Test extends Component {
 	
-	state = {
-	selectedOption: null,
-    }
+	constructor() {
+		super()
+		this.state = {
+		  opt: [],
+		  selectedOption: null
+		}
+	 }
+  
+	componentDidMount() {
+		fetch('http://localhost:3002/employees')
+		  .then(response=> response.json())
+		  .then(users => {
+			for (const x in users){
+				console.log(users[x].name)
+				const temp = Object();
+					temp["value"] = users[x].name;
+					temp["lable"] = users[x].name;
+					opts.push(temp);}
+		  });	
+			console.log(options)
+			console.log(opts)
+
+	}	
 	
 	handleChange = (selectedOption) => {
 	  this.setState({ selectedOption });
 	  console.log(`Option selected:`, selectedOption);
 	}
+	
 	
 	render() {
 		const { selectedOption } = this.state;
@@ -24,7 +48,7 @@ class Test extends Component {
 		  <Select className='w-20 pa2 ma3'
 			value={selectedOption}
 			onChange={this.handleChange}
-			options={options}
+			options={opts}
 		/>
     );
   }
