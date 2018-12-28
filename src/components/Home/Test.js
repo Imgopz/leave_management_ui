@@ -7,8 +7,6 @@ const options = [
   { value: 'Kiran', label: 'Kiran' }
 ];
 
-const opts = [];
-
 
 class Test extends Component {
 	
@@ -29,11 +27,9 @@ class Test extends Component {
 				const temp = Object();
 					temp["value"] = users[x].name;
 					temp["lable"] = users[x].name;
-					opts.push(temp);}
+					options.push(temp);}
 		  });	
 			console.log(options)
-			console.log(opts)
-
 	}	
 	
 	handleChange = (selectedOption) => {
@@ -48,7 +44,7 @@ class Test extends Component {
 		  <Select className='w-20 pa2 ma3'
 			value={selectedOption}
 			onChange={this.handleChange}
-			options={opts}
+			options={options}
 		/>
     );
   }
