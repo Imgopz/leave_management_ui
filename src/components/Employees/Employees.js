@@ -13,7 +13,7 @@ class Employees extends Component {
   }
   
   componentDidMount() {
-    fetch('http://localhost:3000/employees')
+    fetch('http://localhost:3002/employees')
       .then(response=> response.json())
       .then(users => {this.setState({ employees: users})});
   }

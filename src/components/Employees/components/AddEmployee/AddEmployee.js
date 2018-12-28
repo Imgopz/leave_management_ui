@@ -26,7 +26,7 @@ class AddEmployee extends Component {
 	}
 	
 	onAddEmployee = () => {
-		fetch('http://localhost:3000/addemployee', {
+		fetch('http://localhost:3002/addemployee', {
 			method: 'post',
 			headers: {'content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -37,11 +37,8 @@ class AddEmployee extends Component {
 			})
 		})
 		console.log(this.state);
-		
-		
-			
-
 	}
+
 	
 	render()
 		{
