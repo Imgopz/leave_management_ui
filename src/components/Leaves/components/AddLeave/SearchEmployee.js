@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Select from 'react-select'
 
-class Test extends Component {
+class SearchEmployee extends Component {
 	
 	constructor() {
 		super()
@@ -37,7 +37,7 @@ class Test extends Component {
 	render() {
 		const { selectedOption } = this.state;
 		return (
-		  <Select className='w-20 pa2 ma3'
+		  <Select className='f6 pa2 ma2 dib w-20 tl'
 			value={selectedOption}
 			onChange={this.handleChange}
 			options={this.state.opt}
@@ -46,6 +46,6 @@ class Test extends Component {
   }
 }
 
-export default Test;
+export default SearchEmployee;
 
 

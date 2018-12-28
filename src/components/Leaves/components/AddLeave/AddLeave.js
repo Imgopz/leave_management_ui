@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SearchEmployee from './SearchEmployee';
 
 class AddLeave extends Component {
 	constructor(){
@@ -46,7 +47,7 @@ class AddLeave extends Component {
 				<div>
 				  <div>
 					<div className='form pa2 br2 shadow-5'>
-					  <input onChange={this.onNameChange} className='f6 pa2 ma2 dib' placeholder='Name' type='text'/>
+					  <SearchEmployee onChange={this.onNameChange} className='f6 pa2 ma2 dib'  type='text'/>
 					  <select onChange={this.onLeaveChange} id="types" className="f6 pa2 ma2 dib bg-white ba-1 b--gray">
 						  <option value="">Leave Type</option>
 						  <option label="Earned Leave" value="Earned Leave"></option>
