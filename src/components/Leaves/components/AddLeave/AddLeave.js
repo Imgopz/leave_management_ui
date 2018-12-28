@@ -75,7 +75,7 @@ class AddLeave extends Component {
 						onChange={this.handleChange}
 						options={this.state.opt}
 					 />
-					  <select onChange={this.onLeaveChange} id="types" className="f6 pa2 ma2 dib bg-white ba-1 b--gray">
+					  <select onChange={this.onLeaveChange} id="types" className="f6 pa2 ma2 dib ba-1">
 						  <option value="">Leave Type</option>
 						  <option label="Earned Leave" value="Earned Leave"></option>
 						  <option label="Comp Off" value="Comp Off"></option>
