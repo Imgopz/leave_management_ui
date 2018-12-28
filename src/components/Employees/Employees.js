@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import EmployeeList from './EmployeeList';
 import AddEmployee from './components/AddEmployee/AddEmployee'
 
-
 class Employees extends Component {
 
   constructor() {
@@ -18,9 +17,10 @@ class Employees extends Component {
       .then(users => {this.setState({ employees: users})});
   }
 
+  
+
   render() {
   	const { employees } = this.state;
-	
     return (
     	<div>
     		<p className="tl mh7 fw5">Add Employees</p>

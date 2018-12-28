@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Test from './Test'
 import Chart from './Chart'
 
 
@@ -44,6 +45,7 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
+	  <Test />
 		<Chart chartData={this.state.chartData} legendPosition="bottom"/>
 		<p className='mv6'>This page is under construction. Please come back soon!</p>
       </div>

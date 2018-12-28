@@ -9,6 +9,7 @@
     "react-chartjs-2": "^2.7.4",
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.2",
+    "react-select": "^2.2.0",
     "tachyons": "^4.11.1"
   },
   "scripts": {
