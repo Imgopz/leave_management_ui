@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SearchEmployee from './SearchEmployee';
+import Select from 'react-select'
 
 class AddLeave extends Component {
 	constructor(){
@@ -8,13 +8,35 @@ class AddLeave extends Component {
 			addedName: '',
 			addedLeave: '',
 			addedLfrom: '',
-			addedLto: ''
+			addedLto: '',
+			opt: [],
+			selectedOption: null
 		}
 	}
 	
-	onNameChange = (event) => {
-		this.setState({addedName: event.target.value})
+	componentDidMount() {
+		fetch('http://localhost:3002/employees')
+		  .then(response=> response.json())
+		  .then(users => {
+			const y = [];
+			for (const x in users){
+				console.log(users[x].name)
+				const temp = Object();
+					temp["value"] = users[x].name;
+					temp["label"] = users[x].name;
+					y.push(temp);}
+			this.setState({ opt: y})
+			console.log(y)
+		  });	
+			console.log(this.state.opt)
 	}
+	
+	handleChange = (selectedOption) => {
+	  this.setState({ selectedOption });
+	  this.setState({ addedName:selectedOption.value  });
+	  console.log(`Option selected:`, selectedOption.value);
+	}
+	
 	onLeaveChange = (event) => {
 		this.setState({addedLeave: event.target.value})
 	}
@@ -43,11 +65,16 @@ class AddLeave extends Component {
 	
 	render()
 		{
+			const { selectedOption } = this.state;
 			return (
 				<div>
 				  <div>
 					<div className='form pa2 br2 shadow-5'>
-					  <SearchEmployee onChange={this.onNameChange} className='f6 pa2 ma2 dib'  type='text'/>
+					<Select className='f6 pa2 ma2 dib w-20 tl'
+						value={selectedOption}
+						onChange={this.handleChange}
+						options={this.state.opt}
+					 />
 					  <select onChange={this.onLeaveChange} id="types" className="f6 pa2 ma2 dib bg-white ba-1 b--gray">
 						  <option value="">Leave Type</option>
 						  <option label="Earned Leave" value="Earned Leave"></option>
